@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.example.parqueo_hospital.ui.component.ParkingDiagram?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.parqueo_hospital.ui.controller.PresentController">
+    <padding>
+        <Insets bottom="12.0" left="14.0" right="14.0" top="4.0" />
+    </padding>
+    <top>
+        <VBox spacing="8.0">
+            <BorderPane>
+                <left>
+                    <VBox spacing="6.0" BorderPane.alignment="CENTER_LEFT">
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                            <ProgressBar fx:id="barCars" prefWidth="220.0" progress="0.0" styleClass="occupancy-bar" />
+                            <Label fx:id="lblCars" styleClass="occupancy-label" />
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                            <ProgressBar fx:id="barMotos" prefWidth="220.0" progress="0.0" styleClass="occupancy-bar" />
+                            <Label fx:id="lblMotos" styleClass="occupancy-label" />
+                        </HBox>
+                    </VBox>
+                </left>
+                <right>
+                    <HBox alignment="CENTER_RIGHT" spacing="8.0" BorderPane.alignment="TOP_RIGHT">
+                        <Label styleClass="search-label" text="Buscar por chapa:" />
+                        <TextField fx:id="txtSearch" prefWidth="200.0" promptText="Ej. P123456" />
+                    </HBox>
+                </right>
+            </BorderPane>
+            <Label fx:id="lblConsult" managed="false" styleClass="consult-banner" visible="false"
+                   text="Su turno está cuadrado: solo puede consultar los vehículos con más de 24 horas." wrapText="true" />
+        </VBox>
+    </top>
+    <center>
+        <StackPane styleClass="content-card">
+            <BorderPane.margin>
+                <Insets bottom="10.0" top="8.0" />
+            </BorderPane.margin>
+            <ScrollPane fitToWidth="true" styleClass="diagram-scroll">
+                <content>
+                    <ParkingDiagram fx:id="diagram" />
+                </content>
+            </ScrollPane>
+        </StackPane>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="12.0">
+            <Button fx:id="btnEntry" onAction="#registerEntry" text="Registrar Entrada" />
+            <Button fx:id="btnExit" onAction="#registerExit" text="Registrar Salida" />
+            <Button fx:id="btnOver24" onAction="#toggleOver24" text="Mostrar Vehículos +24h" />
+            <Button fx:id="btnCloseShift" onAction="#closeShift" text="Cuadrar Turno" />
+        </HBox>
+    </bottom>
+</BorderPane>

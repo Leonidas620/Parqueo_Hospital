@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.parqueo_hospital.ui.controller.SubscriptionsController">
+    <padding>
+        <Insets bottom="14.0" left="14.0" right="14.0" top="4.0" />
+    </padding>
+    <top>
+        <HBox alignment="CENTER_RIGHT" spacing="8.0">
+            <padding>
+                <Insets bottom="10.0" />
+            </padding>
+            <Label styleClass="search-label" text="Buscar por:" />
+            <TextField fx:id="txtPlate" prefWidth="130.0" promptText="Chapa" />
+            <ComboBox fx:id="cmbMonth" prefWidth="160.0" />
+            <TextField fx:id="txtYear" prefWidth="90.0" promptText="Año" />
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="table">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="colId" text="Código" />
+                <TableColumn fx:id="colPlate" text="Chapa" />
+                <TableColumn fx:id="colMonth" text="Mes" />
+                <TableColumn fx:id="colYear" text="Año" />
+                <TableColumn fx:id="colAmount" styleClass="right-aligned" text="Importe" />
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="12.0">
+            <padding>
+                <Insets top="12.0" />
+            </padding>
+            <Button onAction="#addSubscription" text="Agregar Abono" />
+            <Button onAction="#deleteSubscription" text="Eliminar Abono" />
+        </HBox>
+    </bottom>
+</BorderPane>

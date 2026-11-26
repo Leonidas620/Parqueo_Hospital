@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+
+<BorderPane fx:id="root" styleClass="app-root" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.parqueo_hospital.ui.controller.ShellController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16.0" styleClass="shell-header">
+            <padding>
+                <Insets bottom="8.0" left="12.0" right="12.0" top="8.0" />
+            </padding>
+            <MenuButton fx:id="menuButton" text="☰  Menú">
+                <items>
+                    <MenuItem fx:id="miPresent" onAction="#showPresent" text="Vehículos presentes" />
+                    <MenuItem fx:id="miServices" onAction="#showServices" text="Registro de servicios" />
+                    <MenuItem fx:id="miShifts" onAction="#showShifts" text="Registro de turnos" />
+                    <MenuItem fx:id="miVehicles" onAction="#showVehicles" text="Registro de vehículos globales" />
+                    <MenuItem fx:id="miSubscriptions" onAction="#showSubscriptions" text="Gestión de abonos" />
+                    <MenuItem fx:id="miRates" onAction="#showRates" text="Gestión de tarifas" />
+                    <MenuItem fx:id="miCapacity" onAction="#showCapacity" text="Gestión de capacidad" />
+                    <MenuItem fx:id="miAccounts" onAction="#showAccounts" text="Gestión de cuentas" />
+                    <MenuItem fx:id="miMyAccount" onAction="#showMyAccount" text="Mi cuenta" />
+                    <SeparatorMenuItem />
+                    <MenuItem fx:id="miLogout" onAction="#logout" text="Cerrar sesión" />
+                </items>
+            </MenuButton>
+            <Label fx:id="lblTitle" styleClass="screen-title" text="Título" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="lblUser" styleClass="user-label" />
+        </HBox>
+    </top>
+</BorderPane>

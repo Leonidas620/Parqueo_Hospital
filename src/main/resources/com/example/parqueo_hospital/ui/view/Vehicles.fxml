@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane prefHeight="472.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.parqueo_hospital.ui.controller.VehiclesController">
+    <padding>
+        <Insets bottom="14.0" left="14.0" right="14.0" top="4.0" />
+    </padding>
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="8.0">
+            <padding>
+                <Insets bottom="10.0" />
+            </padding>
+            <Label styleClass="search-label" text="Buscar por:" />
+            <TextField fx:id="txtPlate" prefWidth="130.0" promptText="Chapa" />
+            <ComboBox fx:id="cmbType" prefWidth="150.0" />
+            <TextField fx:id="txtOwner" prefWidth="180.0" promptText="Propietario" />
+            <TextField fx:id="txtMake" prefWidth="140.0" promptText="Marca" />
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="table" prefHeight="408.0" prefWidth="692.0">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="colPlate" text="Chapa" />
+                <TableColumn fx:id="colType" text="Tipo" />
+                <TableColumn fx:id="colColor" text="Color" />
+                <TableColumn fx:id="colMake" text="Marca" />
+                <TableColumn fx:id="colOwner" text="Propietario" />
+                <TableColumn fx:id="colPhone" text="Teléfono" />
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
